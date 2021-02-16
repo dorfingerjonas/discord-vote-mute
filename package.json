@@ -1,7 +1,26 @@
 {
   "name": "discord-bot-template",
   "version": "1.0.0",
+  "license": "MIT",
+  "author": "Jonas Dorfinger",
   "dependencies": {
     "discord.js": "^12.0.2"
-  }
+  },
+  "description": "Servermute members with a voting system",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dorfingerjonas/discord-vote-mute.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dorfingerjonas/discord-vote-mute/issues"
+  },
+  "homepage": "https://github.com/dorfingerjonas/discord-vote-mute#readme"
 }
