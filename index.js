@@ -16,8 +16,7 @@ client.on('message', msg => {
                 const targetUser = msg.guild.members.cache.get(params[1].substring(3, params[1].length - 1));
                 const duration = parseInt(params[2]) || 1;
 
-                msg.channel.send(`<@!${msg.author.id}> wants to mute <@!${targetUser?.id}> for ${duration} ${duration === 1 ? 'minute' : 'minutes'}. Do you support?`)
-                    .then(message => {
+                msg.channel.send(`<@!${msg.author.id}> wants to mute <@!${targetUser?.id}> for ${duration} ${duration === 1 ? 'minute' : 'minutes'}. Do you support?`).then(message => {
                         let reactions = 0;
                         message.react('✅').catch(console.error);
 
