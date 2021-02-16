@@ -9,14 +9,19 @@ client.on('ready', () => {
 client.on('message', msg => {
     if (msg.content.startsWith('!mute')) {
         const params = msg.content.split(' ');
-        const requiredChecks = 2;
+        const requiredChecks = 3;
 
         if (params.length >= 2) {
             if (params[1].startsWith('<@!')) {
                 const targetUser = msg.guild.members.cache.get(params[1].substring(3, params[1].length - 1));
-                const duration = parseInt(params[2]) || 1;
+                let duration = parseInt(params[2]) || 1;
 
-                msg.channel.send(`<@!${msg.author.id}> wants to mute <@!${targetUser?.id}> for ${duration} ${duration === 1 ? 'minute' : 'minutes'}. Do you support?`).then(message => {
+                if (duration > 3) {
+                    duration = 3;
+                }
+
+                msg.channel.send(`<@!${msg.author.id}> wants to mute <@!${targetUser?.id}> for ${duration} ${duration === 1 ? 'minute' : 'minutes'}. Do you support?`)
+                    .then(message => {
                         let reactions = 0;
                         message.react('✅').catch(console.error);
 
