@@ -10,7 +10,7 @@ https://discordapp.com/oauth2/authorize?&client_id=811198123430903840&scope=bot&
 
 ### Commands
 
-- ``[Command]`` [Command description]
+- ``!mute [@Username] [duration?]`` duration in minutes between 1 and 3
 
 ## Developers
 
