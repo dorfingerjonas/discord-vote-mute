@@ -46,10 +46,11 @@ client.on('message', msg => {
                         collector.on('end', () => {
                             if (reactions !== requiredChecks) {
                                 msg.channel.send(`time out, could not get ${requiredChecks} supporters in one minute. For punishment, <@!${msg.author.id}> gets muted for ${duration} ${duration === 1 ? 'minute' : 'minutes'}.`);
-                                msg.author.voice.setMute(true).catch(console.error);
+                                const author = msg.guild.members.cache.get(msg.author.id);
+                                author?.voice?.setMute(true).catch(console.error);
 
                                 setTimeout(() => {
-                                    msg.author.voice.setMute(false).catch(console.error);
+                                    author?.voice?.setMute(false).catch(console.error);
                                 }, 60000 * duration);
                             }
                         });
